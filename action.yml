@@ -1,4 +1,4 @@
-name: 'nodenv'
+name: 'nodenv/node-version'
 description: 'Derive node version using nodenv'
 branding:
   icon: 'hexagon'
