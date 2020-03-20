@@ -2,7 +2,6 @@ const exec = require('util').promisify(require('child_process').exec)
 const core = require('@actions/core')
 
 const setupNodenv = require('../setup-nodenv')
-const { fail } = require('../src/utils')
 
 function run () {
   return setupNodenv
@@ -11,4 +10,4 @@ function run () {
 }
 
 module.exports = run()
-module.exports.catch(fail)
+module.exports.catch(err => core.setFailed(err.message))
