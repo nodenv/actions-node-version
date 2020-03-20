@@ -1,7 +1,7 @@
 name: 'nodenv/node-version'
-description: 'Derive node version using nodenv'
+description: 'Makes `nodenv local` available as a step output'
 branding:
-  icon: 'hexagon'
+  icon: 'box'
   color: 'yellow'
 
 inputs:
