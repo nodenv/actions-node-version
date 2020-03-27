@@ -1,0 +1,21 @@
+name: Release
+on:
+  push: # only semver tags, excluding prereleases
+    tags: 'v[0-9]+.[0-9]+.[0-9]+'
+
+jobs:
+  github:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: jasonkarns/create-release@master
+
+  major-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - env:
+          tag: ${{github.ref}}
+        run: |
+          tag=${tag#refs/tags/}
+          major=${tag%%.*}
+          git push origin HEAD:refs/heads/$major
