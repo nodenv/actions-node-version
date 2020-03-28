@@ -43,3 +43,5 @@ You may reference either one in your workflows:
 # pulls from the release repo
 - uses: nodenv/actions-node-version
 ```
+
+**Issues and Pull Requests should be opened in the [monorepo](https://github.com/nodenv/actions), please!**
