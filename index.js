@@ -10,4 +10,4 @@ function run () {
 }
 
 module.exports = run()
-module.exports.catch(err => core.setFailed(err.message))
+module.exports.catch(core.setFailed)
