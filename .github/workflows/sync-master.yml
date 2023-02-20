@@ -5,4 +5,4 @@ on:
 
 jobs:
   sync:
-    uses: nodenv/actions/.github/workflows/sync-master.yml@${{ github.ref }}
+    uses: nodenv/actions/.github/workflows/sync-master.yml@${{github.ref}}
