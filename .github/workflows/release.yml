@@ -1,24 +1,7 @@
 name: Release
 on:
-  push: { tags: 'v[0-9]+.[0-9]+.[0-9]+' }
+  push: { tags: "v.*" }
 
 jobs:
-  github:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with: { fetch-depth: 0 }
-      - run: npx -q -p @nodenv/devutil changelog | tee relnotes.txt
-      - uses: jasonkarns/create-release@master
-        with: { body_path: relnotes.txt }
-
-  major-version:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - env:
-          tag: ${{github.ref}}
-        run: |
-          tag=${tag#refs/tags/}
-          major=${tag%%.*}
-          git push -f origin HEAD:refs/heads/$major
+  release:
+    uses: nodenv/actions/.github/workflows/release.yml
