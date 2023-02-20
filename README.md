@@ -11,7 +11,7 @@ Determines node version via `nodenv local` and sets it as an output for use in s
 ```yml
 steps:
   - id: nodenv
-    uses: nodenv/actions/node-version@main
+    uses: nodenv/actions/node-version@v3
   - run: echo ${{ steps.nodenv.outputs.node-version }}
 ```
 
@@ -21,9 +21,9 @@ Example demonstrating combined use with GitHub's own setup-node action:
 
 ```yml
 steps:
-  - uses: nodenv/actions/node-version@main
+  - uses: nodenv/actions/node-version@v3
     id: nodenv
-  - uses: actions/setup-node@v1
+  - uses: actions/setup-node@v3
     with:
       node-version: '${{ steps.nodenv.outputs.node-version }}'
   - run: node -v
@@ -38,10 +38,10 @@ You may reference either one in your workflows:
 
 ```yml
 # pulls from the monorepo
-- uses: nodenv/actions/node-version@main
+- uses: nodenv/actions/node-version@v3
 
 # pulls from the release repo
-- uses: nodenv/actions-node-version@main
+- uses: nodenv/actions-node-version@v3
 ```
 
 **Issues and Pull Requests should be opened in the [monorepo](https://github.com/nodenv/actions), please!**
