@@ -4,4 +4,4 @@ on:
 
 jobs:
   release:
-    uses: nodenv/actions/.github/workflows/release.yml@v2
+    uses: nodenv/actions/.github/workflows/release.yml@main
