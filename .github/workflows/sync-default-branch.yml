@@ -1,7 +1,9 @@
-name: Sync Master
+name: Sync Default Branch
 on:
   push: { branches: main }
   workflow_dispatch:
+
+permissions: { contents: write }
 
 jobs:
   sync:
