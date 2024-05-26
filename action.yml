@@ -15,5 +15,5 @@ outputs:
     description: The version of node as determined by nodenv
 
 runs:
-  using: node16
+  using: node20
   main: dist/index.js
