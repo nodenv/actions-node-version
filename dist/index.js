@@ -9,10 +9,10 @@ const core = __nccwpck_require__(5316)
 
 const setupNodenv = __nccwpck_require__(2558)
 
-function run () {
+function run() {
   return setupNodenv
-    .then(() => exec('nodenv local'))
-    .then(cmd => core.setOutput('node-version', cmd.stdout.trim()))
+    .then(() => exec("nodenv local"))
+    .then((cmd) => core.setOutput("node-version", cmd.stdout.trim()))
 }
 
 module.exports = run()
@@ -6576,9 +6576,9 @@ exports["default"] = _default;
 const core = __nccwpck_require__(5316)
 const { installNodenv } = __nccwpck_require__(69)
 
-function run () {
+function run() {
   return Promise.resolve().then(() =>
-    installNodenv(core.getInput('nodenv-version'))
+    installNodenv(core.getInput("nodenv-version"))
   )
 }
 
@@ -6595,27 +6595,27 @@ const path = __nccwpck_require__(1017)
 const core = __nccwpck_require__(5316)
 const tools = __nccwpck_require__(9303)
 
-const TOOL_NAME = 'nodenv'
+const TOOL_NAME = "nodenv"
 
 module.exports = {
   installNodenv: async function (version) {
     const toolPath = tools.find(TOOL_NAME, version) || downloadNodenv(version)
 
     // prepend bin directory to PATH for future tasks
-    core.addPath(path.join(await toolPath, 'bin'))
+    core.addPath(path.join(await toolPath, "bin"))
 
     return toolPath
   }
 }
 
-async function downloadNodenv (version) {
+async function downloadNodenv(version) {
   return Promise.resolve(
     `https://github.com/nodenv/nodenv/archive/v${version}.tar.gz`
   )
-    .then(url => tools.downloadTool(url))
-    .then(tarballPath => tools.extractTar(tarballPath))
-    .then(extractedPath => `${extractedPath}/nodenv-${version}`)
-    .then(nodenvPath => tools.cacheDir(nodenvPath, TOOL_NAME, version))
+    .then((url) => tools.downloadTool(url))
+    .then((tarballPath) => tools.extractTar(tarballPath))
+    .then((extractedPath) => `${extractedPath}/nodenv-${version}`)
+    .then((nodenvPath) => tools.cacheDir(nodenvPath, TOOL_NAME, version))
 }
 
 
