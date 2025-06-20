@@ -25,7 +25,7 @@ steps:
     id: nodenv
   - uses: actions/setup-node@v3
     with:
-      node-version: '${{ steps.nodenv.outputs.node-version }}'
+      node-version: "${{ steps.nodenv.outputs.node-version }}"
   - run: node -v
 ```
 

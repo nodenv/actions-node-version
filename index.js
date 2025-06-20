@@ -1,12 +1,12 @@
-const exec = require('util').promisify(require('child_process').exec)
-const core = require('@actions/core')
+const exec = require("util").promisify(require("child_process").exec)
+const core = require("@actions/core")
 
-const setupNodenv = require('../setup-nodenv')
+const setupNodenv = require("../setup-nodenv")
 
-function run () {
+function run() {
   return setupNodenv
-    .then(() => exec('nodenv local'))
-    .then(cmd => core.setOutput('node-version', cmd.stdout.trim()))
+    .then(() => exec("nodenv local"))
+    .then((cmd) => core.setOutput("node-version", cmd.stdout.trim()))
 }
 
 module.exports = run()
