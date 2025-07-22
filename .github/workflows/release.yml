@@ -4,7 +4,6 @@ on:
   workflow_dispatch:
 
 permissions: {}
-
 jobs:
   release:
     uses: nodenv/actions/.github/workflows/release.yml@main
