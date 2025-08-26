@@ -1,0 +1,3 @@
+# stops inheriting from parent .editorconfig;
+# effectively disables editorconfig in this directory
+root = true
